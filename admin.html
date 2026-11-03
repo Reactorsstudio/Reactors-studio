@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Studio admin | RE:ACTORS STUDIO</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a href="/">RE:ACTORS STUDIO admin</a></div></header>
+<main class="band">
+  <div class="wrap">
+    <section id="login-view" hidden style="max-width:26rem">
+      <h2>Admin login</h2>
+      <form id="login-form" novalidate>
+        <div class="field"><label for="a-pass">Password</label><input id="a-pass" type="password" autocomplete="current-password" required></div>
+        <div class="err" id="l-err" role="alert"></div>
+        <button class="btn" type="submit">Log in</button>
+      </form>
+    </section>
+    <section id="data-view" hidden>
+      <div class="stats" id="stats"></div>
+      <div class="cta-row" style="margin-bottom:1.6rem">
+        <a class="btn ghost" href="/api/admin/bookings.csv">Download bookings (CSV)</a>
+        <button class="btn ghost" type="button" id="logout-btn">Log out</button>
+      </div>
+      <h2 style="font-size:1.4rem">Bookings</h2>
+      <div class="tablewrap" style="margin-bottom:2.5rem"><table id="bookings"></table></div>
+      <h2 style="font-size:1.4rem">Questions</h2>
+      <div id="enquiries"></div>
+      <p class="err" id="d-err" role="alert"></p>
+    </section>
+    <p id="loading" class="note">Loading...</p>
+  </div>
+</main>
+<script src="/admin.js" defer></script>
+</body>
+</html>

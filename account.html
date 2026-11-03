@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>My booking | RE:ACTORS STUDIO</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a href="/">RE:ACTORS STUDIO</a></div></header>
+<main class="band">
+  <div class="wrap" style="max-width:40rem">
+    <section id="login-view" hidden>
+      <p class="eyebrow">Student login</p>
+      <h2>See your booking</h2>
+      <p class="lead" style="margin-bottom:1.4rem">Enter the email you booked with. We will send you a one-time link, so there is no password to remember.</p>
+      <form id="login-form" novalidate>
+        <div class="field"><label for="l-email">Email</label><input id="l-email" type="email" autocomplete="email" required></div>
+        <div class="err" id="l-err" role="alert"></div>
+        <button class="btn" type="submit" id="l-btn">Email me a login link</button>
+        <p class="note ok" id="l-ok" role="status"></p>
+      </form>
+    </section>
+    <section id="account-view" hidden>
+      <p class="eyebrow">Your account</p>
+      <h2 id="hello">Hello</h2>
+      <div class="cards" id="bookings"></div>
+      <div class="cta-row" style="margin-top:1.4rem">
+        <button class="btn" type="button" id="portal-btn" hidden>Manage payments and subscription</button>
+        <button class="btn ghost" type="button" id="logout-btn">Log out</button>
+      </div>
+      <p class="err" id="a-err" role="alert"></p>
+      <p class="note">Questions about your booking? Call 07939 208234 or email reactorshq@gmail.com. Our <a href="/#policy">booking, cancellation and refund policies</a> are on the main page.</p>
+    </section>
+    <p id="loading" class="note">Loading...</p>
+  </div>
+</main>
+<script src="/account.js" defer></script>
+</body>
+</html>
