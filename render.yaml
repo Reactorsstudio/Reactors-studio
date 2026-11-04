@@ -1,0 +1,47 @@
+# Render blueprint: at render.com choose New > Blueprint and pick this repository.
+# It creates the web service, the persistent disk and most settings automatically.
+# You are asked to type in only the secret values (marked sync: false below).
+services:
+  - type: web
+    name: reactors-studio
+    runtime: node
+    plan: starter # paid: needed so the disk (and your database) survives restarts
+    buildCommand: echo ok
+    startCommand: npm start
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 22.13.0
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /var/data
+      - key: SESSION_SECRET
+        generateValue: true # Render makes a long random string for you
+      - key: BASE_URL
+        sync: false # the address Render gives you, e.g. https://reactors-studio.onrender.com (no trailing slash)
+      - key: ADMIN_PASSWORD
+        sync: false # a long password, 12+ characters, only you know
+      - key: STRIPE_SECRET_KEY
+        sync: false # Stripe > Developers > API keys (start with sk_test_...)
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false # Stripe > Developers > Webhooks (whsec_..., see README step 3)
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: "465"
+      - key: SMTP_SECURE
+        value: "true"
+      - key: SMTP_USER
+        value: reactorshq@gmail.com
+      - key: SMTP_PASS
+        sync: false # 16-character Gmail App Password (see README step 4)
+      - key: STUDIO_EMAIL
+        value: reactorshq@gmail.com
+      - key: TERM_START
+        value: 2027-01-06
+      - key: MAX_PLACES
+        value: "20"
